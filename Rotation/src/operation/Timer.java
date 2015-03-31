@@ -1,7 +1,5 @@
 package operation;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Timer {
@@ -14,8 +12,13 @@ public class Timer {
 		return startTime;
 	}
 	private long getCurrentTimeInMillis() {
-		DateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");
 		Date date = new Date();
+		return date.getTime();
+	}
+	public long get(){
+		long time = getCurrentTimeInMillis()-startTime;
+		if(time>0)
+		return time;
 		return 0;
 	}
 }

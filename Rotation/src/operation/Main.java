@@ -29,6 +29,9 @@ public class Main {
 	public static void pause() {
 		seq.pause();
 	}
+	public static void resume() {
+		seq.resume();
+	}
 	public static void reset(){
 		seq.reset();
 	}
@@ -36,6 +39,7 @@ public class Main {
 		seq.init(file);
 	}
 	public static void update(){
+		seq.update();
 		Overlay.display(seq.getQue());
 		if(seq.shouldFlash())Overlay.flash();
 		Overlay.displayTimers(seq.getQueTimes());

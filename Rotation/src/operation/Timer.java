@@ -8,6 +8,9 @@ public class Timer {
 	public Timer(){
 		startTime=0;
 	}
+	public Timer(long startTime){
+		this.startTime=startTime;
+	}
 	public long start(){
 		startTime=getCurrentTimeInMillis();
 		return startTime;

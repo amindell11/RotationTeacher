@@ -2,18 +2,19 @@ package operation;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.List;
 
 import filemanagers.readers.Ability;
 import filemanagers.readers.Database;
 import filemanagers.readers.Reader;
 
 public abstract class Sequencer {
-	private Reader reader;
+	protected Reader reader;
 	private boolean moveOn;
 	protected int index;
-	private File list;
+	private File file;
 	private boolean isPaused;
-	private ArrayList<Ability> abilities;
+	private List<Ability> abilities;
 
 	public void start() {
 
@@ -34,14 +35,14 @@ public abstract class Sequencer {
 	}
 
 	public void init(File file) {
-		list = file;
+		this.file = file;
 		reader = new Reader(file);
 		readList();
 		reset();
 	}
 
 	public void readList() {
-		abilities = reader.readToList(Database.ACTIONS);
+		abilities = Database.convertToAbilities(reader.readToList(Database.ACTIONS));
 	}
 
 	public Object getQue() {

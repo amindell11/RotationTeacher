@@ -1,5 +1,6 @@
 package operation;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Timer {
@@ -20,5 +21,9 @@ public class Timer {
 		if(time>0)
 		return time;
 		return 0;
+	}
+	public String getMinuteFormat(){
+		long time=get();
+		return (new SimpleDateFormat("mm:ss")).format(new Date(time));
 	}
 }

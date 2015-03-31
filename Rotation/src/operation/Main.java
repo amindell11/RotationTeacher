@@ -10,6 +10,7 @@ public class Main {
 	static final int updateTime = 500;
 	private static Sequencer seq;
 	public static void main(String[] args) {
+		seq=new TimeSequencer();
 		Overlay.launch(args);
 		Database.indexXML(new File(ablInfoPath));
 		while (Overlay.isOpen()) {

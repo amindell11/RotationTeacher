@@ -11,7 +11,7 @@ public class Main {
 	private static Sequencer seq;
 	public static void main(String[] args) {
 		Overlay.launch(args);
-		Database.indexFileNames(ablInfoPath);
+		Database.indexXML(new File(ablInfoPath));
 		while (Overlay.isOpen()) {
 			update();
 			try {

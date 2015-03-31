@@ -2,8 +2,10 @@ package filemanagers.readers;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -15,33 +17,32 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
-import files.Ability;
-
 public class Database {
+	private static Map<String,Ability> map;
 	public static final int ACTIONS=1;
 	public static final int TIMES=0;
 	public static List<Ability> convertToAbilities(List<String> readToList) {
-		return null;
+		List<Ability> temp=new ArrayList<Ability>();
+		for(String s:readToList){
+			temp.add(map.get(s));
+		}
+		return temp;
 	}
-	private static HashMap indexXML(File...files){
-		HashMap map=new HashMap();
+	public static void indexXML(File...files){
+		map=new HashMap<String,Ability>();
 		for (File file:files){
 			if(file.isFile()&&file.getName().contains(".xml")){
 				Document doc=getXMLDoc(file);
-				parseFile(doc);
+				map.putAll(getAbilitiesInNode(doc.getDocumentElement().getChildNodes()));
 			}else if(file.isDirectory()){
-				indexXML(file);
+				indexXML(file.listFiles());
 			}
 		}
-		return map;
-	}
-
-	private static void parseFile(Document doc) {
-		
 	}
 
 
-	private static NodeList enterNode(Element base,String tag) {
+
+	public static NodeList enterNode(Element base,String tag) {
 		NodeList bList = base.getElementsByTagName(tag);
 		return bList.item(0).getChildNodes();
 	}
@@ -62,6 +63,7 @@ public class Database {
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
+			return null;
 	}
 
 	public static NodeList enterNode(Element base, String tag,
@@ -87,7 +89,6 @@ public class Database {
 					.getAttributes().item(0).getTextContent().equals("True")) {
 				String key = eElement.getElementsByTagName("Label").item(0)
 						.getAttributes().item(0).getTextContent();
-				System.out.println(key);
 				// key = key.toLowerCase();
 				// double cooldown=
 				// Double.parseDouble(eElement.getElementsByTagName("Cooldown")
@@ -101,13 +102,10 @@ public class Database {
 						.getElementsByTagName("CombatLogID").item(0)
 						.getAttributes().item(0).getTextContent());
 				Ability a = new Ability(0, key, icon, description, logID);
-				System.out.println(key);
 				map.put(key, a);
 			}
 		}
 		return map;
 	}
-
-}
 
 }

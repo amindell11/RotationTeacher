@@ -23,8 +23,8 @@ public class Ability {
 	public String getName() {
 		return name;
 	}
-	public Image getIcon() {
-		return new Image("file:icons/"+icon+".png");
+	public String getIcon() {
+		return "icons/"+icon+".png";
 	}
 	public String getDescription() {
 		System.out.println(description);

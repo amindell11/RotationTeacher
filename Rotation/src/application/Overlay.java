@@ -1,10 +1,12 @@
 package application;
 
 import java.io.File;
-
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import filemanagers.readers.Ability;
 import operation.Main;
 import javafx.application.Application;
 import javafx.event.EventHandler;
@@ -29,7 +31,7 @@ import javafx.stage.StageStyle;
  */
 public class Overlay extends Application {
 	private static boolean open;
-	private ImageView[] que;
+	private static ImageView[] que;
 	private static ImageView current;
 	int x;
 	int y;
@@ -65,22 +67,22 @@ public class Overlay extends Application {
 		});
 		close.setCancelButton(true);
 		play.setDefaultButton(true);
-		controls.getChildren().addAll(play, load, reset, close,settings);
+		controls.getChildren().addAll(play, load, reset, close, settings);
 
-		que = new ImageView[4];
+		que = new ImageView[5];
 		for (int x = 0; x < que.length; x++) {
 			que[x] = new ImageView();
 			loadIcon(que[x], "");
 		}
 
-		current = new ImageView();
+		current = que[4];
 		loadIcon(current, "");
 		current.setFitHeight(90);
 		current.setFitWidth(90);
 		HBox box = new HBox();
 		box.setSpacing(2);
-		box.getChildren().add(current);
 		box.getChildren().addAll(que);
+		box.getChildren().remove(que[4]);
 		HBox root = new HBox();
 		root.setPadding(new Insets(10, 10, 10, 10));
 
@@ -131,9 +133,11 @@ public class Overlay extends Application {
 
 	}
 
-	public static void display(Object que) {
-		// TODO Auto-generated method stub
-
+	public static void display(List<Ability> group) {
+		int length=que.length>group.size()?que.length:group.size();
+		for (int x = 0; x <length; x++) {
+			loadIcon(que[x], group.get(x).getIcon());
+		}
 	}
 
 	public static void displayTimers(Object queTimes) {
@@ -141,18 +145,23 @@ public class Overlay extends Application {
 
 	}
 
-	private void loadIcon(ImageView v, String s) {
+	private static void loadIcon(ImageView v, String s) {
 		File f = new File(s);
+		System.out.println(s);
 		if (f != null && f.isFile() && s.contains(".png")) {
 			Image i = new Image("file:" + s);
 			v.setImage(i);
 		} else {
+			System.err.println("error loading file: "+s);
 			v.setImage(new Image("file:icons/empty.png"));
 		}
 	}
 
 	public static void main(String[] args) {
 		launch(args);
+		List<Ability> s=new ArrayList<Ability>();
+		s.add(new Ability(0,"armament1","icons/armament1","",10000));
+		Overlay.display(s);
 	}
 
 }

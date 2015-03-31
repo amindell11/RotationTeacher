@@ -17,5 +17,25 @@ public class Overlay extends Application {
 		stage.setScene(scene);
 		stage.show();
 	}
+
+	public static boolean isOpen() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public static void flash() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public static void display(Object que) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public static void displayTimers(Object queTimes) {
+		// TODO Auto-generated method stub
+		
+	}
 	
 }

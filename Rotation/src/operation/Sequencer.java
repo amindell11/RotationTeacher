@@ -4,31 +4,44 @@ import java.io.File;
 import java.util.ArrayList;
 
 import filemanagers.readers.Ability;
+import filemanagers.readers.Database;
 import filemanagers.readers.Reader;
 
 public abstract class Sequencer {
-	private Reader r;
+	private Reader reader;
 	private boolean moveOn;
-	private int index;
+	protected int index;
 	private File list;
 	private boolean isPaused;
 	private ArrayList<Ability> abilities;
+
 	public void start() {
-		
+
 	}
-	public void resume(){
-		isPaused=false;
+
+	public void resume() {
+		isPaused = false;
 	}
+
 	public void pause() {
-		isPaused=true;
+		isPaused = true;
 	}
 
 	public void reset() {
-		init(list);
+		moveOn = false;
+		index = 0;
+		isPaused = true;
 	}
 
 	public void init(File file) {
-		list=file;
+		list = file;
+		reader = new Reader(file);
+		readList();
+		reset();
+	}
+
+	public void readList() {
+		abilities = reader.readToList(Database.ACTIONS);
 	}
 
 	public Object getQue() {
@@ -42,13 +55,16 @@ public abstract class Sequencer {
 	public Object getQueTimes() {
 		return null;
 	}
+
 	public abstract boolean isMoveOn();
 
 	public void update() {
-		moveOn=isMoveOn();
-		if(moveOn&&!isPaused)step();
+		moveOn = isMoveOn();
+		if (moveOn && !isPaused)
+			step();
 	}
-	private void step(){
+
+	private void step() {
 		index++;
 	}
 

@@ -25,7 +25,7 @@ public class Timer {
 	}
 	public void resume(){
 		isPaused=false;
-		timeOffset+=getTimerTime-currentTime;
+		timeOffset+=getTimerTime()-currentTime;
 		updateCurrentTime();
 	}
 	private long getCurrentTimeInMillis() {
@@ -37,7 +37,7 @@ public class Timer {
 			currentTime=getTimerTime();
 		}
 	}
-	public void getTimerTime(){
+	public long getTimerTime(){
 		return getCurrentTimeInMillis()-startTime-timeOffset;
 	}
 	public long get(){

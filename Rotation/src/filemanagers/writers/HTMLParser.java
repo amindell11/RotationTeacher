@@ -9,9 +9,12 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
-public class HTMLParser extends Writer {
+public class HTMLParser {
 	public static void main(String[] args) {
-		String html = "http://parsely.io/parser/view/12412/0";
+		System.out.println(parseTable("http://parsely.io/parser/view/12412/0")[0][0]);
+	}
+
+	public static String[][] parseTable(String html) {
 		Document doc;
 		try {
 			doc = Jsoup.connect(html).get();
@@ -23,16 +26,24 @@ public class HTMLParser extends Writer {
 				}
 			}
 			Element tableElements = doc.getElementById("rotation");
-			Elements tableRowElements = tableElements.select(":not(thead) tr");
-			ArrayList<String> list = new ArrayList<String>();
-			for (int i = 0; i < tableRowElements.size(); i++) {
+			Elements tableRowElements = tableElements.select("tr");
+			String[][] table = new String[tableRowElements.get(2).select("td").size()][tableRowElements.size()];
+			System.out.println(table.length);
+			for (int i = 1; i < tableRowElements.size(); i++) {
 				Element row = tableRowElements.get(i);
 				Elements rowItems = row.select("td");
-				System.out.println(rowItems.text());
+				for (int x = 0; x < table[0].length; x++) {
+					for (int y = 0; y < table.length; y++) {
+						table[x][y]=rowItems.get(y).text();
+					}
+				}
+
 			}
+			return table;
 		} catch (IOException e1) {
 			e1.printStackTrace();
 		}
-
+		return null;
 	}
+
 }

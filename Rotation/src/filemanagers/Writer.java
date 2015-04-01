@@ -10,9 +10,7 @@ import com.Ostermiller.util.CSVParser;
 import com.Ostermiller.util.CSVPrinter;
 import com.Ostermiller.util.LabeledCSVParser;
 
-public class CSVManager {
-	public CSVManager=new CSV
-	private LabeledCSVParser parser;
+public class Writer {
 	public static void TSVWrite(File file,String[][] table){
 		if(file!=null&&file.isFile()){
 			CSVPrinter csvp = new CSVPrinter(System.out);
@@ -30,5 +28,4 @@ public class CSVManager {
 			}
 		}
 	}
-
 }

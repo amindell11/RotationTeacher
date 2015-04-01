@@ -42,12 +42,12 @@ public class Database {
 
 
 
-	public static NodeList enterNode(Element base,String tag) {
+	private static NodeList enterNode(Element base,String tag) {
 		NodeList bList = base.getElementsByTagName(tag);
 		return bList.item(0).getChildNodes();
 	}
 
-	public static Document getXMLDoc(File file) {
+	private static Document getXMLDoc(File file) {
 			try {
 				DocumentBuilderFactory dbFactory = DocumentBuilderFactory
 						.newInstance();
@@ -66,7 +66,7 @@ public class Database {
 			return null;
 	}
 
-	public static NodeList enterNode(Element base, String tag,
+	private static NodeList enterNode(Element base, String tag,
 			String query) {
 		NodeList bList = base.getElementsByTagName(tag);
 		String textContent = "";
@@ -79,7 +79,7 @@ public class Database {
 		return bList.item(x).getChildNodes();
 	}
 
-	public static HashMap getAbilitiesInNode(NodeList doc) {
+	private static HashMap getAbilitiesInNode(NodeList doc) {
 		HashMap map=new HashMap();
 		NodeList nList = ((Element) doc).getElementsByTagName("Ability");
 		for (int temp = 0; temp < nList.getLength(); temp++) {

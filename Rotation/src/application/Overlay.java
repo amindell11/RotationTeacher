@@ -38,20 +38,55 @@ public class Overlay extends Application {
 
 	@Override
 	public void start(Stage stage) {
-
-		HBox controls = new HBox();
+		
 		Button play = new Button("Start");
+			play.setDefaultButton(true);
 		Button load = new Button("Load");
 		Button reset = new Button("Reset");
 		Button close = new Button("Close");
-		ImageView ico = new ImageView("file:res/gear.png");
+			close.setCancelButton(true);
+		ImageView icon = new ImageView("file:res/gear.png");
+			icon.setPreserveRatio(true);
+			icon.setFitWidth(15);
+		Button settings = new Button("", icon);
+			settings.setMaxSize(110, 110);
 
-		Button settings = new Button("", ico);
+		que = new ImageView[5];
+		for (int x = 0; x < que.length; x++) {
+			que[x] = new ImageView();
+			loadIcon(que[x], "");
+		}
+		
+		current = que[4];
+			current.setFitHeight(90);
+			current.setFitWidth(90);
+			loadIcon(current, "");
+		
+		HBox controls = new HBox();
+			controls.getChildren().addAll(play, load, reset, close, settings);
+
+		HBox box = new HBox();
+			box.setSpacing(2);
+			box.getChildren().addAll(que);
+			box.getChildren().remove(que[4]);
+		
+		VBox right = new VBox();
+			right.setAlignment(Pos.TOP_LEFT);
+			right.setSpacing(2);
+			right.getChildren().addAll(box, controls);
+		
+		HBox root = new HBox();
+			root.setPadding(new Insets(10, 10, 10, 10));
+			root.setSpacing(2);
+			root.getChildren().addAll(current, right);
+			root.setStyle("-fx-background-color: transparent;");
+
 		play.setOnAction(event -> {
 			if (play.getText().equals("Resume")) {
 				Main.resume();
 				play.setText("Pause");
 			} else {
+				play.setText("Resume");
 				Main.pause();
 			}
 		});
@@ -59,56 +94,28 @@ public class Overlay extends Application {
 			LoadFileInterface.launch();
 		});
 		reset.setOnAction(event -> {
+			play.setText("Start");
 			Main.reset();
 		});
 		close.setOnAction(event -> {
 			open = false;
 			stage.close();
 		});
-		close.setCancelButton(true);
-		play.setDefaultButton(true);
-		controls.getChildren().addAll(play, load, reset, close, settings);
-
-		que = new ImageView[5];
-		for (int x = 0; x < que.length; x++) {
-			que[x] = new ImageView();
-			loadIcon(que[x], "");
-		}
-
-		current = que[4];
-		loadIcon(current, "");
-		current.setFitHeight(90);
-		current.setFitWidth(90);
-		HBox box = new HBox();
-		box.setSpacing(2);
-		box.getChildren().addAll(que);
-		box.getChildren().remove(que[4]);
-		HBox root = new HBox();
-		root.setPadding(new Insets(10, 10, 10, 10));
-
-		VBox right = new VBox();
-		right.setAlignment(Pos.TOP_LEFT);
-		right.setSpacing(2);
-		right.getChildren().addAll(box, controls);
-		root.setSpacing(2);
-		root.getChildren().addAll(current, right);
 		Scene scene = new Scene(root);
+			scene.setFill(null);
+			scene.setOnMousePressed((event) -> {
+				x = (int) (stage.getX() - event.getScreenX());
+				y = (int) (stage.getY() - event.getScreenY());
+			});
+			scene.setOnMouseDragged((event) -> {
+				stage.setX(event.getScreenX() + x);
+				stage.setY(event.getScreenY() + y);
+			});
+		
 		stage.setScene(scene);
-		root.setStyle("-fx-background-color: transparent;");
-		scene.setFill(null);
-		stage.initStyle(StageStyle.TRANSPARENT);
-		scene.setOnMousePressed((event) -> {
-			x = (int) (stage.getX() - event.getScreenX());
-			y = (int) (stage.getY() - event.getScreenY());
-		});
-		scene.setOnMouseDragged((event) -> {
-			stage.setX(event.getScreenX() + x);
-			stage.setY(event.getScreenY() + y);
-		});
-		stage.show();
-		ico.setPreserveRatio(true);
-		ico.setFitWidth(15);
-		settings.setMaxSize(110, 110);
+			stage.initStyle(StageStyle.TRANSPARENT);
+			stage.show();
+
 
 	}
 

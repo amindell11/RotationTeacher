@@ -45,7 +45,7 @@ public abstract class Sequencer {
 		abilities = Database.convertToAbilities(reader.readToList(Database.ACTIONS));
 	}
 
-	public Object getQue() {
+	public List<Ability> getQue() {
 		return null;
 	}
 
@@ -53,7 +53,7 @@ public abstract class Sequencer {
 		return moveOn;
 	}
 
-	public Object getQueTimes() {
+	public List<String> getQueTimes() {
 		return null;
 	}
 

@@ -45,7 +45,7 @@ public class Overlay extends Application {
 		Button reset = new Button("Reset");
 		Button close = new Button("Close");
 			close.setCancelButton(true);
-		ImageView icon = new ImageView("file:res/gear.png");
+		ImageView icon = new ImageView("file:sys/gear.png");			
 			icon.setPreserveRatio(true);
 			icon.setFitWidth(15);
 		Button settings = new Button("", icon);

@@ -12,14 +12,14 @@ import javax.swing.JFrame;
 import application.Overlay;
 import filemanagers.readers.Ability;
 import filemanagers.readers.Database;
+import filemanagers.readers.LogParser;
 import operation.Timer;
 
 public class Tester extends Application{
 	public static void main(String[] args) {
-		Overlay.launch();
-		List<Ability> s=new ArrayList<Ability>();
-		s.add(new Ability(0,"armament1","armament1","",10000));
-		Overlay.display(s);
+		Database.indexXML(new File("XML"));
+		System.out.println(LogParser.lastLine(new File("logs/log.txt")));
+		System.out.println(Database.getAbility("Hand Of Justice").getLogID());
 	}
 
 	@Override

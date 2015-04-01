@@ -24,9 +24,12 @@ public class Database {
 	public static List<Ability> convertToAbilities(List<String> readToList) {
 		List<Ability> temp=new ArrayList<Ability>();
 		for(String s:readToList){
-			temp.add(map.get(s));
+			temp.add(getAbility(s));
 		}
 		return temp;
+	}
+	public static Ability getAbility(String s) {
+		return map.get(s);
 	}
 	public static void indexXML(File...files){
 		map=new HashMap<String,Ability>();

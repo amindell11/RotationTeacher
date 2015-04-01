@@ -12,9 +12,9 @@ public abstract class Sequencer {
 	protected Reader reader;
 	private boolean moveOn;
 	protected int index;
-	private File file;
-	private boolean isPaused;
-	private List<Ability> abilities;
+	protected File file;
+	protected boolean isPaused;
+	protected List<Ability> abilities;
 
 	public void start() {
 
@@ -42,7 +42,7 @@ public abstract class Sequencer {
 	}
 
 	public void readList() {
-		abilities = Database.convertToAbilities(reader.readToList(Database.ACTIONS));
+		setAbilities(Database.convertToAbilities(reader.readToList(Database.ACTIONS)));
 	}
 
 	public List<Ability> getQue() {
@@ -67,6 +67,14 @@ public abstract class Sequencer {
 
 	private void step() {
 		index++;
+	}
+
+	public List<Ability> getAbilities() {
+		return abilities;
+	}
+
+	public void setAbilities(List<Ability> abilities) {
+		this.abilities = abilities;
 	}
 
 }

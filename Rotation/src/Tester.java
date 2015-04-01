@@ -19,12 +19,11 @@ public class Tester extends Application{
 	public static void main(String[] args) {
 		Database.indexXML(new File("XML"));
 		System.out.println(LogParser.lastLine(new File("logs/log.txt")));
-		System.out.println(Database.getAbility("Hand Of Justice").getLogID());
+		System.out.println(Database.getAbility("Hand of Justice").getLogID());
 	}
 
 	@Override
 	public void start(Stage arg0) throws Exception {
-		// TODO Auto-generated method stub
 		
 	}
 }

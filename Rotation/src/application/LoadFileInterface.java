@@ -28,13 +28,9 @@ public class LoadFileInterface extends Application {
 			cancel.setCancelButton(true);
 		ScrollPane scroll=new ScrollPane();
 		
-		HBox windowControls=new HBox();
-			windowControls.setSpacing(5);
-			windowControls.getChildren().addAll(cancel,load);
-		
 		HBox fileLoad=new HBox();
 			fileLoad.setSpacing(2);
-			fileLoad.getChildren().addAll(parse,file);
+			fileLoad.getChildren().addAll(path,parse);
 		
 		GridPane pane= new GridPane();
 		GridPane.setHgrow(scroll,Priority.ALWAYS);
@@ -43,9 +39,9 @@ public class LoadFileInterface extends Application {
 		pane.setVgap(10);
 		pane.setHgap(10);
 		HBox.setHgrow(path,Priority.ALWAYS);
-		pane.add(windowControls,1,2);
-		pane.add(path,0,0);
-		pane.add(scroll,0,1,2,1);
+		pane.add(cancel,0,2);
+		pane.add(load, 2, 2);
+		pane.add(scroll,1,1);
 		pane.add(fileLoad, 1, 0);
 		Scene scene=new Scene(pane);
 		stage.setScene(scene);

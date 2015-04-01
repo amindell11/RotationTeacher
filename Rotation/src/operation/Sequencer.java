@@ -1,6 +1,7 @@
 package operation;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -42,7 +43,11 @@ public abstract class Sequencer {
 	}
 
 	public void readList() {
-		setAbilities(Database.convertToAbilities(reader.readToList(Database.ACTIONS)));
+		try {
+			setAbilities(Database.convertToAbilities(reader.readToList("Action")));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 
 	public List<Ability> getQue() {

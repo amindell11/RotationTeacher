@@ -1,7 +1,10 @@
 package application;
 
 import java.io.File;
+import java.io.IOException;
 
+import filemanagers.Writer;
+import filemanagers.writers.HTMLParser;
 import operation.Main;
 import javafx.application.Application;
 import javafx.geometry.Insets;
@@ -34,7 +37,7 @@ public class LoadFileInterface extends Application {
 			cancel.setCancelButton(true);
 			
 		parse.setOnAction(event -> {
-			parse();
+			parse(path.getText());
 		});
 		fileButton.setOnAction(event -> {
 			file=fileChooser.showOpenDialog(null);
@@ -68,8 +71,9 @@ public class LoadFileInterface extends Application {
 		stage.setScene(scene);
 		stage.show();
 	}
-	private void parse() {
-		// TODO Auto-generated method stub
+	private void parse(String URL) {
+		file=new File("parse.tsv");
+		Writer.TSVWrite(file, HTMLParser.parseTable(URL));
 	}
 	public static void main(String[] args){
 		launch();

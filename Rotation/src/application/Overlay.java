@@ -91,7 +91,7 @@ public class Overlay extends Application {
 			}
 		});
 		load.setOnAction(event -> {
-			LoadFileInterface.launch();
+			new LoadFileInterface().start(new Stage());
 		});
 		reset.setOnAction(event -> {
 			play.setText("Start");
@@ -165,10 +165,11 @@ public class Overlay extends Application {
 	}
 
 	public static void main(String[] args) {
-		launch(args);
-		List<Ability> s=new ArrayList<Ability>();
-		s.add(new Ability(0,"armament1","icons/armament1","",10000));
-		Overlay.display(s);
+		new Thread(()->{
+			Main.main();
+		}).start();
+		launch();
+
 	}
 
 }

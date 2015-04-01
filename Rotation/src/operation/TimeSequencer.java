@@ -1,5 +1,6 @@
 package operation;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -42,7 +43,11 @@ public class TimeSequencer extends Sequencer{
 	@Override
 	public void readList() {
 		super.readList();
-		times=convertToLong(reader.readToList(Database.TIMES));
+		try {
+			times=convertToLong(reader.readToList("time"));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 	private List<Long> convertToLong(List<String> times){
 		List<Long> temp = new ArrayList<Long>();

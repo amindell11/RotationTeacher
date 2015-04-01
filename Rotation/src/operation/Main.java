@@ -2,6 +2,9 @@ package operation;
 
 import java.io.File;
 
+import javafx.application.Application;
+import javafx.application.Platform;
+import javafx.stage.Stage;
 import filemanagers.readers.Database;
 import application.Overlay;
 
@@ -9,9 +12,9 @@ public class Main {
 	static final String ablInfoPath = "XML";
 	static final int updateTime = 500;
 	private static Sequencer seq;
-	public static void main(String[] args) {
+	public static void main() {
 		seq=new TimeSequencer();
-		Overlay.launch(args);
+		System.out.println(true);
 		Database.indexXML(new File(ablInfoPath));
 		while (Overlay.isOpen()) {
 			update();
@@ -37,6 +40,7 @@ public class Main {
 		seq.reset();
 	}
 	public static void load(File file){
+		System.out.println(seq);
 		seq.init(file);
 	}
 	public static void update(){

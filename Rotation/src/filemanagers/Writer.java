@@ -3,6 +3,7 @@ package filemanagers;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 
 import com.Ostermiller.util.CSVParse;
@@ -12,10 +13,11 @@ import com.Ostermiller.util.LabeledCSVParser;
 
 public class Writer {
 	public static void TSVWrite(File file,String[][] table){
-		if(file!=null&&file.isFile()){
-			CSVPrinter csvp = new CSVPrinter(System.out);
-			csvp.changeDelimiter('\t');
+		if(file!=null){
+			CSVPrinter csvp;
 			try {
+				csvp = new CSVPrinter(new FileWriter(file));
+			csvp.changeDelimiter('\t');
 				csvp.writeln(table);
 			} catch (IOException e) {
 				e.printStackTrace();

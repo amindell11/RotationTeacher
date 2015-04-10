@@ -32,7 +32,7 @@ public class HTMLParser {
 				Element row = tableRowElements.get(i);
 				Elements rowItems = row.select("td");
 				rowItems.addAll(row.select("th"));
-					for (int x = 0; x < table.length; x++) {
+					for (int x = 0; x < table[0].length; x++) {
 						table[i][x]=rowItems.get(x).text();
 					}
 

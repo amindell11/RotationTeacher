@@ -18,6 +18,7 @@ public class Reader {
 		if(file!=null&&file.isFile()){
 			try {
 				parser=new LabeledCSVParser(new CSVParser(new FileReader(file)));
+				parser.changeDelimiter('\t');
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
@@ -29,6 +30,7 @@ public class Reader {
 		}
 	}
 	public List<String> readToList(String label) throws IOException {
+		List<String> asList = Arrays.asList(parser.getLabels());
 		int c=parser.getLabelIdx(label);
 		return Arrays.asList(table[c]);
 	}

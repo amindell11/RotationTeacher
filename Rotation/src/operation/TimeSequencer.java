@@ -44,7 +44,7 @@ public class TimeSequencer extends Sequencer{
 	public void readList() {
 		super.readList();
 		try {
-			times=convertToLong(reader.readToList("time"));
+			times=convertToLong(reader.readToList("Time"));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

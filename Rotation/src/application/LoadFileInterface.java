@@ -3,8 +3,8 @@ package application;
 import java.io.File;
 import java.io.IOException;
 
-import filemanagers.Writer;
 import filemanagers.writers.HTMLParser;
+import filemanagers.writers.Writer;
 import operation.Main;
 import javafx.application.Application;
 import javafx.geometry.Insets;

@@ -27,15 +27,14 @@ public class HTMLParser {
 			}
 			Element tableElements = doc.getElementById("rotation");
 			Elements tableRowElements = tableElements.select("tr");
-			String[][] table = new String[tableRowElements.get(2).select("td").size()][tableRowElements.size()];
-			for (int i = 1; i < tableRowElements.size(); i++) {
+			String[][] table = new String[tableRowElements.size()][tableRowElements.get(2).select("td").size()];
+			for (int i = 0; i < tableRowElements.size(); i++) {
 				Element row = tableRowElements.get(i);
 				Elements rowItems = row.select("td");
-				for (int y = 0; y < table[0].length; y++) {
+				rowItems.addAll(row.select("th"));
 					for (int x = 0; x < table.length; x++) {
-						table[x][y]=rowItems.get(x).text();
+						table[i][x]=rowItems.get(x).text();
 					}
-				}
 
 			}
 			return table;

@@ -14,7 +14,9 @@ import javafx.scene.control.Label;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
@@ -33,7 +35,7 @@ public class Overlay extends Application {
 	private static ImageView current;
 	int x;
 	int y;
-
+	
 	@Override
 	public void start(Stage stage) {
 		open=true;
@@ -47,8 +49,7 @@ public class Overlay extends Application {
 			icon.setPreserveRatio(true);
 			icon.setFitWidth(15);
 		Button settings = new Button("", icon);
-			settings.setMaxSize(110, 110);
-
+			settings.setMaxSize(25,25);
 		que = new ImageView[5];
 		for (int x = 0; x < que.length; x++) {
 			que[x] = new ImageView();
@@ -58,34 +59,35 @@ public class Overlay extends Application {
 		for (int x = 0; x < queTimes.length; x++) {
 			queTimes[x] = new Label("00.000");
 		}
-		VBox[]timeAndIconList=new VBox[4];
-		for(int x=0;x<timeAndIconList.length;x++){
-			timeAndIconList[x]=new VBox();
-			timeAndIconList[x].getChildren().addAll(queTimes[x],que[x+1]);
-		}
 		
 		current = que[0];
 			current.setFitHeight(90);
 			current.setFitWidth(90);
 			loadIcon(current, "");
+		HBox queBox=new HBox();
+			queBox.setSpacing(2);
+			queBox.getChildren().addAll(que);
+			queBox.getChildren().remove(que[0]);
+		HBox timeBox=new HBox();
+			timeBox.setSpacing(2);
+			timeBox.getChildren().addAll(queTimes);
 		
 		HBox controls = new HBox();
 			controls.getChildren().addAll(play, load, reset, close, settings);
-
-		HBox box = new HBox();
-			box.setSpacing(2);
-			box.getChildren().addAll(timeAndIconList);
 		
-		VBox right = new VBox();
-			right.setAlignment(Pos.TOP_LEFT);
-			right.setSpacing(2);
-			right.getChildren().addAll(box, controls);
-		
-		HBox root = new HBox();
-			root.setPadding(new Insets(10, 10, 10, 10));
-			root.setSpacing(2);
-			root.getChildren().addAll(current, right);
-			root.setStyle("-fx-background-color: transparent;");
+		GridPane pane= new GridPane();
+			pane.setPadding(new Insets(10,10,10,10));
+			pane.setVgap(2);
+			pane.setHgap(2);
+			pane.add(current, 0, 1,1,2);
+			for(int x=1;x<que.length;x++){
+				pane.add(que[x], x, 1);
+			}
+			for(int x=0;x<queTimes.length;x++){
+				pane.add(queTimes[x], 1+x, 0);
+			}
+			pane.add(controls, 1, 2,4,1);
+			pane.setStyle("-fx-background-color: transparent;");
 
 		play.setOnAction(event -> {
 			if (play.getText().equals("Pause")) {
@@ -108,7 +110,7 @@ public class Overlay extends Application {
 			open = false;
 			stage.close();
 		});
-		Scene scene = new Scene(root);
+		Scene scene = new Scene(pane);
 			scene.setFill(null);
 			scene.setOnMousePressed((event) -> {
 				x = (int) (stage.getX() - event.getScreenX());
@@ -140,7 +142,6 @@ public class Overlay extends Application {
 			@Override
 			public void run() {
 				current.setEffect(null);
-
 			}
 
 		}, 500);

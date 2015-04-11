@@ -79,8 +79,8 @@ public class TimeSequencer extends Sequencer {
 	}
 	public List<String> getQueTimes() {
 		List<String> temp =new ArrayList<String>();
-		for(int x=0;x<4;x++){
-			long t=times.get(index+x)-timer.get();
+		for(int x=0;x<5;x++){
+			long t=times.get(index+x+1)-timer.get();
 			temp.add(Timer.getSecondFormat(t));
 		}			
 		return temp;

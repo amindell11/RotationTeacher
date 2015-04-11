@@ -3,6 +3,7 @@ package filemanagers.readers;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -30,9 +31,13 @@ public class Reader {
 		}
 	}
 	public List<String> readToList(String label) throws IOException {
-		List<String> asList = Arrays.asList(parser.getLabels());
 		int c=parser.getLabelIdx(label);
-		return Arrays.asList(table[c]);
+		List<String> list=new ArrayList<String>();
+		for(int x=0;x<table.length;x++){
+			list.add(table[x][c]);
+		}
+		System.out.println("sig reader:"+list);
+		return list;
 	}
 	public String[][] TSVRead(File file) throws IOException{
 		return parser.getAllValues();

@@ -33,4 +33,7 @@ public class Ability {
 	public long getLogID() {
 		return logID;
 	}
+	public String toString(){
+		return getName();
+	}
 }

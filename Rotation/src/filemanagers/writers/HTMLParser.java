@@ -1,6 +1,7 @@
 package filemanagers.writers;
 
 import java.io.IOException;
+import java.net.SocketTimeoutException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,9 +16,13 @@ public class HTMLParser {
 	}
 
 	public static String[][] parseTable(String html) {
-		Document doc;
+		Document doc=new Document(html);
 		try {
+			try {
 			doc = Jsoup.connect(html).get();
+			}catch (SocketTimeoutException e){
+			//	parseTable(html);
+			}
 			while (doc == null) {
 				try {
 					Thread.sleep(500);

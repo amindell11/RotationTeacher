@@ -38,7 +38,7 @@ public class Overlay extends Application {
 
 	@Override
 	public void start(Stage stage) {
-		
+		open=true;
 		Button play = new Button("Start");
 			play.setDefaultButton(true);
 		Button load = new Button("Load");
@@ -82,12 +82,13 @@ public class Overlay extends Application {
 			root.setStyle("-fx-background-color: transparent;");
 
 		play.setOnAction(event -> {
-			if (play.getText().equals("Resume")) {
-				Main.resume();
-				play.setText("Pause");
-			} else {
-				play.setText("Resume");
+			if (play.getText().equals("Pause")) {
 				Main.pause();
+				play.setText("Resume");
+			} else {
+				play.setText("Pause");
+				Main.resume();
+
 			}
 		});
 		load.setOnAction(event -> {
@@ -141,9 +142,10 @@ public class Overlay extends Application {
 	}
 
 	public static void display(List<Ability> group) {
-		int length=que.length>group.size()?que.length:group.size();
-		for (int x = 0; x <length; x++) {
-			loadIcon(que[x], group.get(x).getIcon());
+		for (int x = 0; x <que.length; x++) {
+			Ability ability = group.get(x);
+			if(ability!=null)
+			loadIcon(que[x], ability.getIcon());
 		}
 	}
 
@@ -153,14 +155,22 @@ public class Overlay extends Application {
 	}
 
 	private static void loadIcon(ImageView v, String s) {
+		if (s!= null){
+			s=s.trim();
 		File f = new File(s);
 		System.out.println(s);
-		if (f != null && f.isFile() && s.contains(".png")) {
+		if (f.isFile() && s.contains(".png")) {
 			Image i = new Image("file:" + s);
 			v.setImage(i);
+			
 		} else {
 			System.err.println("error loading file: "+s);
 			v.setImage(new Image("file:icons/empty.png"));
+		}
+			System.err.println("error loading file: "+s);
+			v.setImage(new Image("file:icons/empty.png"));
+		}else{
+			
 		}
 	}
 

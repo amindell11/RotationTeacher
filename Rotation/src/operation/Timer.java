@@ -1,5 +1,6 @@
 package operation;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -10,14 +11,15 @@ public class Timer {
 	private boolean isPaused;
 	public Timer(){
 		startTime=0;
-		isPaused=false;
+		isPaused=true;
 		timeOffset=0;
 	}
 	public Timer(long startTime){
+		this();
 		this.startTime=startTime;
 	}
 	public void start(){
-		startTime=getCurrentTimeInMillis();
+		startTime=getCurrentTimeInMillis()+startTime;
 	}
 	public void pause(){
 		updateCurrentTime();
@@ -44,8 +46,18 @@ public class Timer {
 		updateCurrentTime();
 		return currentTime;
 	}
-	public String getMinuteFormat(){
-		long time=get();
+	public static String getMinuteFormat(long time){
 		return (new SimpleDateFormat("mm:ss")).format(new Date(time));
+	}
+	public static long getMilliFormat(String time){
+		try {
+			return (new SimpleDateFormat("HH:mm:ss.SSS").parse(time).getTime());
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+		return 1;
+	}
+	public String toString(){
+		return getMinuteFormat(get());
 	}
 }

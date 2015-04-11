@@ -51,22 +51,22 @@ public abstract class Sequencer {
 	}
 
 	public List<Ability> getQue() {
-		return null;
+		List<Ability> temp =new ArrayList<Ability>();
+		for(int x=0;x<5;x++){
+			temp.add(abilities.get(index+x));
+		}
+		System.out.println(temp);
+		return temp;
 	}
 
 	public boolean shouldFlash() {
 		return moveOn;
 	}
 
-	public List<String> getQueTimes() {
-		return null;
-	}
-
 	public abstract boolean isMoveOn();
 
 	public void update() {
-		moveOn = isMoveOn();
-		if (moveOn && !isPaused)
+		if (isMoveOn() && !isPaused)
 			step();
 	}
 

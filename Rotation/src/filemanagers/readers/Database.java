@@ -29,7 +29,6 @@ public class Database {
 		return temp;
 	}
 	public static Ability getAbility(String s) {
-		System.out.println(map);
 		return map.get(s);
 	}
 	public static void indexXML(File...files){

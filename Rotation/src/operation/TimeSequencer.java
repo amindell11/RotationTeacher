@@ -6,17 +6,21 @@ import java.util.List;
 
 import filemanagers.readers.Database;
 
-public class TimeSequencer extends Sequencer{
+public class TimeSequencer extends Sequencer {
 	private Timer timer;
 	private List<Long> times;
-	public TimeSequencer(){
-		timer=new Timer();
-		times=new ArrayList<Long>();
+
+	public TimeSequencer() {
+		timer = new Timer();
+		times = new ArrayList<Long>();
 	}
+
 	@Override
 	public boolean isMoveOn() {
-		return times.get(index)<=timer.get();
+		System.out.println(true);
+		return times.get(index) <= timer.get();
 	}
+
 	@Override
 	public void start() {
 		super.start();
@@ -38,23 +42,60 @@ public class TimeSequencer extends Sequencer{
 	@Override
 	public void reset() {
 		super.reset();
-		timer=new Timer();
+		timer = new Timer();
 	}
+
 	@Override
 	public void readList() {
 		super.readList();
 		try {
-			times=convertToLong(reader.readToList("Time"));
+			List<String> rawTimes = reader.readToList("Time");
+			long t0 = 0;
+			for (int x = 0; x < rawTimes.size(); x++) {
+				String s = rawTimes.get(x);
+				if (s.contains(" (pre-cast)")) {
+					rawTimes.set(x, s.replace(" (pre-cast)", ""));
+				} else {
+					t0 = Timer.getMilliFormat(s);
+					break;
+				}
+			}
+			times = convertToLong(rawTimes,t0);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
-	private List<Long> convertToLong(List<String> times){
+
+	private List<Long> convertToLong(List<String> times) {
 		List<Long> temp = new ArrayList<Long>();
-		for(String string:times){
+
+		for (String string : times) {
 			temp.add(Long.parseLong(string));
 		}
 		return temp;
+	}
+	public List<String> getQueTimes() {
+		List<String> temp =new ArrayList<String>();
+		for(int x=0;x<5;x++){
+			temp.add(Timer.getMinuteFormat(times.get(index+x)));
+		}			
+		System.out.println(temp);
+		return temp;
+	}
+
+	private List<Long> convertToLong(List<String> times,long t0) {
+		List<Long> temp = new ArrayList<Long>();
+
+		for (String string : times) {
+			temp.add(Timer.getMilliFormat(string)-t0);
+		}
+		return temp;
+	}
+	@Override
+	public void update(){
+		super.update();
+		System.out.println(true);
+		System.out.println(timer);
 	}
 
 }

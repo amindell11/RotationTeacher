@@ -10,12 +10,12 @@ import application.Overlay;
 
 public class Main {
 	static final String ablInfoPath = "XML";
-	static final int updateTime = 500;
+	static final int updateTime = 1000;
 	private static Sequencer seq;
 	public static void main() {
 		seq=new TimeSequencer();
-		System.out.println(true);
 		Database.indexXML(new File(ablInfoPath));
+		seq.init(new File("parse.tsv"));
 		while (Overlay.isOpen()) {
 			update();
 			try {
@@ -40,14 +40,13 @@ public class Main {
 		seq.reset();
 	}
 	public static void load(File file){
-		System.out.println(seq);
 		seq.init(file);
 	}
 	public static void update(){
 		seq.update();
 		Overlay.display(seq.getQue());
-		if(seq.shouldFlash())Overlay.flash();
-		Overlay.displayTimers(seq.getQueTimes());
+		//if(seq.shouldFlash())Overlay.flash();
+		Overlay.displayTimers(((TimeSequencer) seq).getQueTimes());
 	}
 
 }

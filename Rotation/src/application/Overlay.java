@@ -33,6 +33,7 @@ public class Overlay extends Application {
 	public static ImageView[] que;
 	private static Label[] queTimes;
 	private static ImageView current;
+	private static Label currentName;
 	int x;
 	int y;
 	
@@ -59,19 +60,13 @@ public class Overlay extends Application {
 		for (int x = 0; x < queTimes.length; x++) {
 			queTimes[x] = new Label("00.000");
 		}
+		currentName=new Label();
 		
 		current = que[0];
 			current.setFitHeight(90);
 			current.setFitWidth(90);
 			loadIcon(current, "");
-		HBox queBox=new HBox();
-			queBox.setSpacing(2);
-			queBox.getChildren().addAll(que);
-			queBox.getChildren().remove(que[0]);
-		HBox timeBox=new HBox();
-			timeBox.setSpacing(2);
-			timeBox.getChildren().addAll(queTimes);
-		
+			
 		HBox controls = new HBox();
 			controls.getChildren().addAll(play, load, reset, close, settings);
 		
@@ -80,14 +75,12 @@ public class Overlay extends Application {
 			pane.setVgap(2);
 			pane.setHgap(2);
 			pane.add(current, 0, 1,1,2);
-			for(int x=1;x<que.length;x++){
-				pane.add(que[x], x, 1);
-			}
-			for(int x=0;x<queTimes.length;x++){
-				pane.add(queTimes[x], 1+x, 0);
-			}
 			pane.add(controls, 1, 2,4,1);
+			pane.add(currentName,0,0);
 			pane.setStyle("-fx-background-color: transparent;");
+			for(int x=1;x<que.length;x++){pane.add(que[x], x, 1);}
+			for(int x=0;x<queTimes.length;x++){pane.add(queTimes[x], 1+x, 0);}
+
 
 		play.setOnAction(event -> {
 			if (play.getText().equals("Pause")) {
@@ -149,13 +142,26 @@ public class Overlay extends Application {
 	}
 
 	public static void display(List<Ability> group) {
-		for (int x = 0; x <que.length; x++) {
+		for (int x = 0; x < que.length; x++) {
 			Ability ability = group.get(x);
-			if(ability!=null)
-			loadIcon(que[x], ability.getIcon());
-			else
-			loadIcon(que[x], "");
+			if (ability != null) {
+				loadIcon(que[x], ability.getIcon());
+			} else{
+				loadIcon(que[x], "");
+			}
+			if(x==0){
+				if(ability!=null){
+				Platform.runLater(() -> {
+					currentName.setText(ability.getName());
+				});
+			}else{
+				Platform.runLater(() -> {
+					currentName.setText("???");
+				});
+			}
+			}
 		}
+		
 	}
 
 	public static void displayTimers(List<String> group) {

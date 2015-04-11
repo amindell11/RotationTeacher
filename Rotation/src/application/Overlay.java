@@ -1,25 +1,17 @@
 package application;
 
 import java.io.File;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Timer;
 import java.util.TimerTask;
 
-import filemanagers.readers.Ability;
-import operation.Main;
 import javafx.application.Application;
 import javafx.application.Platform;
-import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
-import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.effect.DropShadow;
-import javafx.scene.effect.Effect;
-import javafx.scene.effect.Glow;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
@@ -27,6 +19,9 @@ import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import operation.Main;
+import operation.Timer;
+import filemanagers.readers.Ability;
 
 /**
  *
@@ -141,7 +136,7 @@ public class Overlay extends Application {
 		dropShadow.setRadius(30.0);
 		dropShadow.setSpread(.6);
 		current.setEffect(dropShadow);
-		new Timer().schedule(new TimerTask() {
+		new java.util.Timer().schedule(new TimerTask() {
 			@Override
 			public void run() {
 				current.setEffect(null);
@@ -171,6 +166,11 @@ public class Overlay extends Application {
 	private static void setTime(Label l,String s){
 		Platform.runLater(()->{
 			l.setText(s);
+			if(Timer.getMilliFromSecs(s)<500){
+				l.setTextFill(Color.RED);
+			}else{
+				l.setTextFill(Color.BLACK);
+			}
 		});
 	}
 

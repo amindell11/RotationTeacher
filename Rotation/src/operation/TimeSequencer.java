@@ -4,8 +4,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import filemanagers.readers.Database;
-
 public class TimeSequencer extends Sequencer {
 	private Timer timer;
 	private List<Long> times;

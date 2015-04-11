@@ -55,7 +55,9 @@ public class Timer {
 	}
 	public static long getMilliFormat(String time){
 		try {
-			return (new SimpleDateFormat("HH:mm:ss.SSS").parse(time).getTime());
+			SimpleDateFormat simpleDateFormat = new SimpleDateFormat("HH:mm:ss.SSS");
+			
+			return (simpleDateFormat.parse(time).getTime()-simpleDateFormat.parse("00:00:00.000").getTime());
 		} catch (ParseException e) {
 			e.printStackTrace();
 		}
@@ -64,4 +66,15 @@ public class Timer {
 	public String toString(){
 		return getMinuteFormat(get());
 	}
+	public static long getMilliFromSecs(String time){
+		try {
+			SimpleDateFormat simpleDateFormat = new SimpleDateFormat("ss.SSS");
+			
+			return (simpleDateFormat.parse(time).getTime()-simpleDateFormat.parse("00.000").getTime());
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+		return 1;
+	}
+	
 }

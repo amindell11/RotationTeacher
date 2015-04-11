@@ -9,6 +9,7 @@ import java.util.TimerTask;
 import filemanagers.readers.Ability;
 import operation.Main;
 import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -168,7 +169,9 @@ public class Overlay extends Application {
 		}
 	}
 	private static void setTime(Label l,String s){
-		l.setText(s);
+		Platform.runLater(()->{
+			l.setText(s);
+		});
 	}
 
 	private static void loadIcon(ImageView v, String s) {

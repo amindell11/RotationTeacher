@@ -10,7 +10,7 @@ import application.Overlay;
 
 public class Main {
 	static final String ablInfoPath = "XML";
-	static final int updateTime = 250;
+	static final int updateTime = 20;
 	private static Sequencer seq;
 	public static void main() {
 		seq=new TimeSequencer();

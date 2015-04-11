@@ -27,6 +27,7 @@ public abstract class Sequencer {
 
 	public void pause() {
 		isPaused = true;
+		moveOn = false;
 	}
 
 	public void reset() {
@@ -65,7 +66,8 @@ public abstract class Sequencer {
 	public abstract boolean isMoveOn();
 
 	public void update() {
-		if (isMoveOn() && !isPaused)
+		moveOn = isMoveOn();
+		if ( moveOn && !isPaused)
 			step();
 	}
 

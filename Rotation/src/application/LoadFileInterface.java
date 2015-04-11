@@ -1,14 +1,9 @@
 package application;
 
 import java.io.File;
-import java.io.IOException;
 
-import filemanagers.writers.HTMLParser;
-import filemanagers.writers.Writer;
-import operation.Main;
 import javafx.application.Application;
 import javafx.geometry.Insets;
-import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
@@ -18,6 +13,9 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import operation.Main;
+import filemanagers.writers.HTMLParser;
+import filemanagers.writers.Writer;
 
 /**
  *

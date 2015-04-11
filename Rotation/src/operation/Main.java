@@ -45,7 +45,7 @@ public class Main {
 	public static void update(){
 		seq.update();
 		Overlay.display(seq.getQue());
-		//if(seq.shouldFlash())Overlay.flash();
+		if(seq.shouldFlash())Overlay.flash();
 		Overlay.displayTimers(((TimeSequencer) seq).getQueTimes());
 	}
 

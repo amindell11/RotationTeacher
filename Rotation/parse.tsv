@@ -1,149 +1,122 @@
 Time	Action
-11:09:09.421 (pre-cast)	1,000,000 Health
-11:09:19.633 (pre-cast)	Shattered Armor
-11:10:02.849	Force Leap
-11:10:03.308	Overload Saber
-11:10:04.442	Zealous Strike
-11:10:05.950	Merciless Slash
-11:10:07.420	Force Melt
-11:10:08.027	Inspiration
-11:10:08.235	Advanced Anodyne Attack Adrenal
-11:10:08.236	Valorous Call
-11:10:08.635	Zen
-11:10:08.924	Cauterize
-11:10:10.435	Master Strike
-11:10:13.325	Strike
-11:10:14.827	Twin Saber Throw
-11:10:15.332	Overload Saber
-11:10:16.323	Force Leap
-11:10:17.842	Merciless Slash
-11:10:19.336	Zealous Strike
-11:10:20.841	Cauterize
-11:10:22.332	Slash
-11:10:23.835	Force Melt
-11:10:25.337	Strike
-11:10:26.864	Merciless Slash
-11:10:27.540	Overload Saber
-11:10:28.352	Force Leap
-11:10:29.863	Master Strike
-11:10:32.776	Merciless Slash
-11:10:33.072	Zen
-11:10:34.277	Cauterize
-11:10:35.767	Twin Saber Throw
-11:10:37.277	Zealous Strike
-11:10:38.782	Merciless Slash
-11:10:39.700	Overload Saber
-11:10:40.273	Force Leap
-11:10:41.778	Force Melt
-11:10:43.276	Strike
-11:10:44.791	Merciless Slash
-11:10:46.282	Cauterize
-11:10:47.803	Master Strike
-11:10:50.785	Merciless Slash
-11:10:51.591	Overload Saber
-11:10:52.294	Force Leap
-11:10:53.799	Zealous Strike
-11:10:55.299	Twin Saber Throw
-11:10:56.793	Merciless Slash
-11:10:57.304	Zen
-11:10:58.291	Cauterize
-11:10:59.794	Force Melt
-11:11:01.295	Strike
-11:11:02.809	Merciless Slash
-11:11:03.719	Overload Saber
-11:11:04.320	Force Leap
-11:11:05.930	Master Strike
-11:11:08.743	Merciless Slash
-11:11:10.319	Cauterize
-11:11:11.833	Zealous Strike
-11:11:13.320	Twin Saber Throw
-11:11:14.839	Merciless Slash
-11:11:15.832	Overload Saber
-11:11:16.327	Force Leap
-11:11:17.825	Force Melt
-11:11:19.339	Slash
-11:11:20.644	Zen
-11:11:20.844	Merciless Slash
-11:11:22.350	Cauterize
-11:11:23.775	Master Strike
-11:11:26.775	Merciless Slash
-11:11:27.748	Overload Saber
-11:11:28.447	Force Leap
-11:11:30.082	Zealous Strike
-11:11:31.575	Slash
-11:11:33.092	Merciless Slash
-11:11:34.584	Cauterize
-11:11:36.546	Force Melt
-11:11:37.931	Strike
-11:11:39.445	Merciless Slash
-11:11:40.145	Overload Saber
-11:11:40.936	Force Leap
-11:11:41.652	Zen
-11:11:42.429	Master Strike
-11:11:45.454	Merciless Slash
-11:11:46.959	Cauterize
-11:11:48.444	Twin Saber Throw
-11:11:49.955	Zealous Strike
-11:11:51.465	Merciless Slash
-11:11:52.467	Overload Saber
-11:11:52.960	Force Leap
-11:11:54.567	Force Melt
-11:11:56.074	Slash
-11:11:57.576	Merciless Slash
-11:11:59.068	Cauterize
-11:11:59.580	Zen
-11:12:00.588	Master Strike
-11:12:03.501	Merciless Slash
-11:12:04.408	Overload Saber
-11:12:05.011	Force Leap
-11:12:06.511	Twin Saber Throw
-11:12:08.002	Zealous Strike
-11:12:09.512	Merciless Slash
-11:12:11.018	Cauterize
-11:12:12.555	Force Melt
-11:12:14.064	Strike
-11:12:15.569	Merciless Slash
-11:12:16.576	Overload Saber
-11:12:17.072	Force Leap
-11:12:18.566	Master Strike
-11:12:21.572	Merciless Slash
-11:12:23.065	Cauterize
-11:12:24.569	Twin Saber Throw
-11:12:25.479	Zen
-11:12:26.089	Zealous Strike
-11:12:27.575	Merciless Slash
-11:12:28.670	Overload Saber
-11:12:29.183	Force Leap
-11:12:30.802	Force Melt
-11:12:32.301	Dispatch
-11:12:33.781	Merciless Slash
-11:12:35.298	Cauterize
-11:12:36.814	Master Strike
-11:12:39.800	Merciless Slash
-11:12:40.896	Overload Saber
-11:12:41.290	Force Leap
-11:12:42.906	Twin Saber Throw
-11:12:44.386	Zealous Strike
-11:12:45.943	Merciless Slash
-11:12:47.849	Cauterize
-11:12:49.146	Force Melt
-11:12:49.149	Zen
-11:12:50.552	Dispatch
-11:12:52.123	Merciless Slash
-11:12:52.937	Overload Saber
-11:12:53.639	Force Leap
-11:12:55.122	Master Strike
-11:12:58.135	Merciless Slash
-11:12:59.657	Cauterize
-11:13:01.121	Twin Saber Throw
-11:13:02.651	Zealous Strike
-11:13:04.146	Merciless Slash
-11:13:05.240	Overload Saber
-11:13:05.742	Force Leap
-11:13:07.349	Force Melt
-11:13:07.943	Valorous Call
-11:13:08.153	Zen
-11:13:08.254	Advanced Anodyne Attack Adrenal
-11:13:08.832	Dispatch
-11:13:10.358	Merciless Slash
-11:13:11.843	Cauterize
+16:21:29.059 (pre-cast)	Shattered Armor
+16:23:17.094 (pre-cast)	Power Surge
+16:23:17.214	Serrated Shot
+16:23:18.789	Incendiary Missile
+16:23:19.573	Advanced Anodyne Attack Adrenal
+16:23:20.383	Mag Shot
+16:23:21.887	Unload
+16:23:24.777	Supercharged Gas
+16:23:24.867	Electro Net
+16:23:26.467	Thermal Detonator
+16:23:28.092	Mag Shot
+16:23:29.705	Power Shot
+16:23:31.198	Mag Shot
+16:23:32.685	Incendiary Missile
+16:23:34.187	Serrated Shot
+16:23:35.708	Power Shot
+16:23:37.221	Power Shot
+16:23:38.732	Mag Shot
+16:23:39.508	Thermal Sensor Override
+16:23:40.206	Unload
+16:23:43.227	Thermal Detonator
+16:23:44.734	Power Shot
+16:23:46.227	Mag Shot
+16:23:47.713	Incendiary Missile
+16:23:49.230	Serrated Shot
+16:23:50.741	Power Shot
+16:23:52.307	Power Shot
+16:23:53.886	Mag Shot
+16:23:55.367	Unload
+16:23:58.375	Thermal Detonator
+16:23:59.902	Power Shot
+16:24:01.411	Mag Shot
+16:24:02.894	Incendiary Missile
+16:24:04.399	Serrated Shot
+16:24:06.011	Vent Heat
+16:24:06.013	Power Shot
+16:24:07.413	Power Shot
+16:24:08.831	Mag Shot
+16:24:10.212	Unload
+16:24:13.120	Thermal Detonator
+16:24:14.638	Power Shot
+16:24:15.137	Supercharged Gas
+16:24:16.129	Mag Shot
+16:24:17.620	Incendiary Missile
+16:24:19.271	Serrated Shot
+16:24:20.764	Power Shot
+16:24:22.284	Rapid Shots
+16:24:23.785	Mag Shot
+16:24:25.274	Unload
+16:24:28.267	Thermal Detonator
+16:24:29.797	Power Shot
+16:24:31.289	Mag Shot
+16:24:32.781	Incendiary Missile
+16:24:34.285	Serrated Shot
+16:24:35.899	Power Shot
+16:24:37.517	Rapid Shots
+16:24:39.022	Mag Shot
+16:24:40.519	Unload
+16:24:43.483	Rapid Shots
+16:24:45.081	Power Shot
+16:24:46.572	Mag Shot
+16:24:48.075	Incendiary Missile
+16:24:49.577	Serrated Shot
+16:24:51.105	Power Shot
+16:24:52.608	Rapid Shots
+16:24:54.103	Mag Shot
+16:24:55.593	Unload
+16:24:58.599	Electro Net
+16:25:00.108	Power Shot
+16:25:00.420	Supercharged Gas
+16:25:01.625	Mag Shot
+16:25:03.120	Incendiary Missile
+16:25:04.618	Serrated Shot
+16:25:06.136	Power Shot
+16:25:07.639	Power Shot
+16:25:09.287	Mag Shot
+16:25:10.168	Thermal Sensor Override
+16:25:10.884	Unload
+16:25:13.795	Thermal Detonator
+16:25:15.413	Power Shot
+16:25:16.900	Mag Shot
+16:25:18.397	Incendiary Missile
+16:25:19.901	Serrated Shot
+16:25:21.427	Power Shot
+16:25:23.035	Power Shot
+16:25:24.534	Mag Shot
+16:25:26.051	Unload
+16:25:29.042	Thermal Detonator
+16:25:30.544	Power Shot
+16:25:32.065	Mag Shot
+16:25:33.544	Incendiary Missile
+16:25:35.043	Serrated Shot
+16:25:36.578	Vent Heat
+16:25:36.648	Power Shot
+16:25:38.074	Missile Blast
+16:25:39.448	Unload
+16:25:42.271	Mag Shot
+16:25:43.856	Thermal Detonator
+16:25:45.375	Power Shot
+16:25:47.120	Mag Shot
+16:25:48.463	Incendiary Missile
+16:25:49.976	Serrated Shot
+16:25:51.481	Power Shot
+16:25:52.987	Missile Blast
+16:25:54.477	Mag Shot
+16:25:55.975	Unload
+16:25:58.990	Thermal Detonator
+16:25:59.590	Power Surge
+16:26:00.513	Power Shot
+16:26:01.212	Supercharged Gas
+16:26:02.014	Mag Shot
+16:26:03.499	Incendiary Missile
+16:26:05.002	Serrated Shot
+16:26:06.523	Missile Blast
+16:26:08.024	Power Shot
+16:26:09.547	Mag Shot
+16:26:11.117	Unload
+16:26:14.129	Thermal Detonator
+16:26:15.728	Power Shot
+16:26:17.264	Mag Shot
+16:26:18.857	Missile Blast

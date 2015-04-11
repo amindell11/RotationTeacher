@@ -9,10 +9,12 @@ import filemanagers.readers.Database;
 public class TimeSequencer extends Sequencer {
 	private Timer timer;
 	private List<Long> times;
+	private int index0;
 
 	public TimeSequencer() {
 		timer = new Timer();
 		times = new ArrayList<Long>();
+		index0=0;
 	}
 
 	@Override
@@ -41,6 +43,7 @@ public class TimeSequencer extends Sequencer {
 	@Override
 	public void reset() {
 		super.reset();
+		index=index0;
 		timer = new Timer();
 	}
 
@@ -56,6 +59,7 @@ public class TimeSequencer extends Sequencer {
 					rawTimes.set(x, s.replace(" (pre-cast)", ""));
 				} else {
 					t0 = Timer.getMilliFormat(s);
+					index0=x;
 					break;
 				}
 			}
@@ -76,7 +80,8 @@ public class TimeSequencer extends Sequencer {
 	public List<String> getQueTimes() {
 		List<String> temp =new ArrayList<String>();
 		for(int x=0;x<5;x++){
-			temp.add(Timer.getMinuteFormat(times.get(index+x)));
+			long t=times.get(index+x)-timer.get();
+			temp.add(Timer.getSecondFormat(t));
 		}			
 		return temp;
 	}

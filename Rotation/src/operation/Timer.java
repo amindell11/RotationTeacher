@@ -50,6 +50,9 @@ public class Timer {
 	public static String getMinuteFormat(long time){
 		return (new SimpleDateFormat("mm:ss")).format(new Date(time));
 	}
+	public static String getSecondFormat(long time){
+		return (new SimpleDateFormat("ss.SSS")).format(new Date(time));
+	}
 	public static long getMilliFormat(String time){
 		try {
 			return (new SimpleDateFormat("HH:mm:ss.SSS").parse(time).getTime());

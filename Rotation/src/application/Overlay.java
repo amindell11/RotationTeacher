@@ -15,6 +15,7 @@ import javafx.geometry.Pos;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.effect.Effect;
 import javafx.scene.effect.Glow;
@@ -32,6 +33,7 @@ import javafx.stage.StageStyle;
 public class Overlay extends Application {
 	private static boolean open;
 	private static ImageView[] que;
+	private static Label[] queTimes;
 	private static ImageView current;
 	int x;
 	int y;
@@ -56,6 +58,15 @@ public class Overlay extends Application {
 			que[x] = new ImageView();
 			loadIcon(que[x], "");
 		}
+		queTimes = new Label[4];
+		for (int x = 0; x < queTimes.length; x++) {
+			queTimes[x] = new Label("00.000");
+		}
+		VBox[]timeAndIconList=new VBox[4];
+		for(int x=0;x<timeAndIconList.length;x++){
+			timeAndIconList[x]=new VBox();
+			timeAndIconList[x].getChildren().addAll(queTimes[x],que[x]);
+		}
 		
 		current = que[4];
 			current.setFitHeight(90);
@@ -67,8 +78,7 @@ public class Overlay extends Application {
 
 		HBox box = new HBox();
 			box.setSpacing(2);
-			box.getChildren().addAll(que);
-			box.getChildren().remove(que[4]);
+			box.getChildren().addAll(timeAndIconList);
 		
 		VBox right = new VBox();
 			right.setAlignment(Pos.TOP_LEFT);
@@ -151,9 +161,14 @@ public class Overlay extends Application {
 		}
 	}
 
-	public static void displayTimers(Object queTimes) {
-		// TODO Auto-generated method stub
-
+	public static void displayTimers(List<String> group) {
+		for (int x = 0; x <queTimes.length; x++) {
+			String s = group.get(x);
+			setTime(queTimes[x],s);
+		}
+	}
+	private static void setTime(Label l,String s){
+		l.setText(s);
 	}
 
 	private static void loadIcon(ImageView v, String s) {

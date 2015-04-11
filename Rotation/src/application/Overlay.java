@@ -33,7 +33,7 @@ import javafx.stage.StageStyle;
  */
 public class Overlay extends Application {
 	private static boolean open;
-	private static ImageView[] que;
+	public static ImageView[] que;
 	private static Label[] queTimes;
 	private static ImageView current;
 	int x;
@@ -66,10 +66,10 @@ public class Overlay extends Application {
 		VBox[]timeAndIconList=new VBox[4];
 		for(int x=0;x<timeAndIconList.length;x++){
 			timeAndIconList[x]=new VBox();
-			timeAndIconList[x].getChildren().addAll(queTimes[x],que[x]);
+			timeAndIconList[x].getChildren().addAll(queTimes[x],que[x+1]);
 		}
 		
-		current = que[4];
+		current = que[0];
 			current.setFitHeight(90);
 			current.setFitWidth(90);
 			loadIcon(current, "");

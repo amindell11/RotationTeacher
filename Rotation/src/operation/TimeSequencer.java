@@ -19,7 +19,7 @@ public class TimeSequencer extends Sequencer {
 
 	@Override
 	public boolean isMoveOn() {
-		return times.get(index) <= timer.get();
+		return times.get(index+1) <= timer.get();
 	}
 
 	@Override
@@ -79,7 +79,7 @@ public class TimeSequencer extends Sequencer {
 	}
 	public List<String> getQueTimes() {
 		List<String> temp =new ArrayList<String>();
-		for(int x=0;x<5;x++){
+		for(int x=0;x<4;x++){
 			long t=times.get(index+x)-timer.get();
 			temp.add(Timer.getSecondFormat(t));
 		}			

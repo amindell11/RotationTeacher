@@ -17,7 +17,6 @@ public class TimeSequencer extends Sequencer {
 
 	@Override
 	public boolean isMoveOn() {
-		System.out.println(true);
 		return times.get(index) <= timer.get();
 	}
 
@@ -79,7 +78,6 @@ public class TimeSequencer extends Sequencer {
 		for(int x=0;x<5;x++){
 			temp.add(Timer.getMinuteFormat(times.get(index+x)));
 		}			
-		System.out.println(temp);
 		return temp;
 	}
 
@@ -94,8 +92,6 @@ public class TimeSequencer extends Sequencer {
 	@Override
 	public void update(){
 		super.update();
-		System.out.println(true);
-		System.out.println(timer);
 	}
 
 }

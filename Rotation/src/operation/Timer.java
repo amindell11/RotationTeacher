@@ -19,6 +19,7 @@ public class Timer {
 		this.startTime=startTime;
 	}
 	public void start(){
+		isPaused=false;
 		startTime=getCurrentTimeInMillis()+startTime;
 	}
 	public void pause(){

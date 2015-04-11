@@ -55,7 +55,6 @@ public abstract class Sequencer {
 		for(int x=0;x<5;x++){
 			temp.add(abilities.get(index+x));
 		}
-		System.out.println(temp);
 		return temp;
 	}
 

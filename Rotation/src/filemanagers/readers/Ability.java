@@ -27,7 +27,6 @@ public class Ability {
 		return "icons/"+icon+".png";
 	}
 	public String getDescription() {
-		System.out.println(description);
 		return description;
 	}
 	public long getLogID() {

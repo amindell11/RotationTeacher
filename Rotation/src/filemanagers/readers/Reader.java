@@ -36,7 +36,6 @@ public class Reader {
 		for(int x=0;x<table.length;x++){
 			list.add(table[x][c]);
 		}
-		System.out.println("sig reader:"+list);
 		return list;
 	}
 	public String[][] TSVRead(File file) throws IOException{

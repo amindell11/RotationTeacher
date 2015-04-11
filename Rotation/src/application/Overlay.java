@@ -146,6 +146,8 @@ public class Overlay extends Application {
 			Ability ability = group.get(x);
 			if(ability!=null)
 			loadIcon(que[x], ability.getIcon());
+			else
+			loadIcon(que[x], "");
 		}
 	}
 
@@ -155,23 +157,16 @@ public class Overlay extends Application {
 	}
 
 	private static void loadIcon(ImageView v, String s) {
-		if (s!= null){
-			s=s.trim();
 		File f = new File(s);
-		System.out.println(s);
 		if (f.isFile() && s.contains(".png")) {
 			Image i = new Image("file:" + s);
 			v.setImage(i);
 			
 		} else {
-			System.err.println("error loading file: "+s);
+		//	System.err.println("error loading file: "+s);
 			v.setImage(new Image("file:icons/empty.png"));
 		}
-			System.err.println("error loading file: "+s);
-			v.setImage(new Image("file:icons/empty.png"));
-		}else{
 			
-		}
 	}
 
 	public static void main(String[] args) {

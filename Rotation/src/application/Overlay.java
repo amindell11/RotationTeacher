@@ -13,6 +13,11 @@ import javafx.scene.control.Label;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundImage;
+import javafx.scene.layout.BackgroundPosition;
+import javafx.scene.layout.BackgroundRepeat;
+import javafx.scene.layout.BackgroundSize;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.paint.Color;
@@ -26,6 +31,7 @@ import filemanagers.readers.Ability;
  *
  */
 public class Overlay extends Application {
+	private boolean showBackground;
 	private static boolean open;
 	public static ImageView[] que;
 	private static Label[] queTimes;
@@ -36,6 +42,7 @@ public class Overlay extends Application {
 	
 	@Override
 	public void start(Stage stage) {
+		showBackground=true;
 		open=true;
 		Button play = new Button("Start");
 			play.setDefaultButton(true);
@@ -79,6 +86,7 @@ public class Overlay extends Application {
 			for(int x=0;x<queTimes.length;x++){pane.add(queTimes[x], 1+x, 0);}
 
 
+
 		play.setOnAction(event -> {
 			if (play.getText().equals("Pause")) {
 				Main.pause();
@@ -110,6 +118,13 @@ public class Overlay extends Application {
 				stage.setX(event.getScreenX() + x);
 				stage.setY(event.getScreenY() + y);
 			});
+			if(showBackground){
+				BackgroundImage myBI= new BackgroundImage(new Image("file:res/background.png"),
+				        BackgroundRepeat.REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER,
+				          BackgroundSize.DEFAULT);
+				pane.setBackground(new Background(myBI));
+				pane.setStyle("-fx-background-image: url(file:res/background.png);-fx-background-position: center center; -fx-background-repeat: stretch;");
+			}
 		
 		stage.setScene(scene);
 			stage.initStyle(StageStyle.TRANSPARENT);
@@ -134,7 +149,7 @@ public class Overlay extends Application {
 				current.setEffect(null);
 			}
 
-		}, 500);
+		}, 200);
 
 	}
 

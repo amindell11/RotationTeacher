@@ -82,10 +82,11 @@ public class LoadFileInterface extends Application {
 		VBox yBox=new VBox();
 		yBox.setFillWidth(true);
 		scroll.setFitToWidth(true);
-		for(int x=0;x<list.length;x++){
+		for(int x=1;x<list.length;x++){
 			HBox xBox=new HBox();
-			if(x%2==0)xBox.setStyle("-fx-background-color: #B5B5B5;");
-			xBox.setSpacing(10);
+			xBox.maxWidth(Double.MAX_VALUE);
+			if(x%2==0)xBox.setStyle("-fx-background-color: #E0E0E0;");
+			xBox.setSpacing(20);
 			for(int y=0;y<list[0].length;y++){
 				xBox.getChildren().add(new Label(list[x][y]));
 			}
@@ -95,6 +96,21 @@ public class LoadFileInterface extends Application {
 	}
 	public static void main(String[] args){
 		launch();
+	}
+	public void writeScrollDown(String[][] list){
+		HBox box=new HBox();
+		box.setSpacing(3);
+		for(int x=0;x<list[0].length;x++){
+			VBox col=new VBox();
+			col.setFillWidth(true);
+			for(int y=0;y<list.length;y++){
+				Label l=new Label(list[y][x]);
+				if(y%2==0)l.setStyle("-fx-background-color: #E0E0E0;");
+				col.getChildren().add(l);
+			}
+			box.getChildren().add(col);
+		}
+		scroll.setContent(box);
 	}
 	
 }

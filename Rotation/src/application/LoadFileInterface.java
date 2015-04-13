@@ -6,11 +6,13 @@ import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
+import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import operation.Main;
@@ -22,6 +24,7 @@ import filemanagers.writers.Writer;
  */
 public class LoadFileInterface extends Application {
 	private File file;
+	private ScrollPane scroll;
 	@Override
 	public void start(Stage stage) {
 		TextField path = new TextField();
@@ -48,7 +51,7 @@ public class LoadFileInterface extends Application {
 			stage.close();
 		});
 			
-		ScrollPane scroll=new ScrollPane();
+		scroll=new ScrollPane();
 		
 		HBox fileLoad=new HBox();
 		HBox.setHgrow(path,Priority.ALWAYS);
@@ -71,7 +74,24 @@ public class LoadFileInterface extends Application {
 	}
 	private void parse(String URL) {
 		file=new File("parse.tsv");
-		Writer.TSVWrite(file, HTMLParser.parseTable(URL));
+		String[][] s=HTMLParser.parseTable(URL);
+		writeScrollBox(s);
+		Writer.TSVWrite(file, s);
+	}
+	public void writeScrollBox(String[][] list){
+		VBox yBox=new VBox();
+		yBox.setFillWidth(true);
+		scroll.setFitToWidth(true);
+		for(int x=0;x<list.length;x++){
+			HBox xBox=new HBox();
+			if(x%2==0)xBox.setStyle("-fx-background-color: #B5B5B5;");
+			xBox.setSpacing(10);
+			for(int y=0;y<list[0].length;y++){
+				xBox.getChildren().add(new Label(list[x][y]));
+			}
+			yBox.getChildren().add(xBox);
+		}
+		scroll.setContent(yBox);
 	}
 	public static void main(String[] args){
 		launch();

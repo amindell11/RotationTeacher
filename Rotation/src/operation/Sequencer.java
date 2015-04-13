@@ -54,7 +54,12 @@ public abstract class Sequencer {
 	public List<Ability> getQue() {
 		List<Ability> temp =new ArrayList<Ability>();
 		for(int x=0;x<5;x++){
-			temp.add(abilities.get(index+x));
+			int i = index+x;
+			Ability a;
+			if(i<abilities.size())
+				a=abilities.get(i);
+			else a=null;
+			temp.add(a);
 		}
 		return temp;
 	}

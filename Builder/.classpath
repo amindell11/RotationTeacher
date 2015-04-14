@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.pde.core.requiredPlugins"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="CSV parser/ostermillerutils-1.08.02.jar" sourcepath="CSV parser/ostermillerutils-1.08.02-sources.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="jar:platform:/resource/Hello%20World/CSV%20parser/ostermillerutils-1.08.02-javadoc.jar!/"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="JSoup/jsoup-1.8.1.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

@@ -1,0 +1,9 @@
+  .label{ 
+   -fx-font-size: 15pt;
+    -fx-font-family: "Segoe UI Semibold";
+    -fx-text-fill: black;
+    -fx-opacity: 0.6;
+}
+.highlighted{
+    box-shadow: 10px 10px 5px #FFFF66;
+}

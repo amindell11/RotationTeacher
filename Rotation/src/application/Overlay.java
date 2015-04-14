@@ -42,7 +42,7 @@ public class Overlay extends Application {
 	
 	@Override
 	public void start(Stage stage) {
-		showBackground=true;
+		showBackground=false;
 		open=true;
 		Button play = new Button("Start");
 			play.setDefaultButton(true);

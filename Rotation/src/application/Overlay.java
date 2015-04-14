@@ -25,7 +25,7 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import operation.Main;
 import operation.Timer;
-import filemanagers.readers.Ability;
+import util.Ability;
 
 /**
  *

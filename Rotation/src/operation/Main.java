@@ -2,10 +2,7 @@ package operation;
 
 import java.io.File;
 
-import javafx.application.Application;
-import javafx.application.Platform;
-import javafx.stage.Stage;
-import filemanagers.readers.Database;
+import util.Database;
 import application.Overlay;
 
 public class Main {

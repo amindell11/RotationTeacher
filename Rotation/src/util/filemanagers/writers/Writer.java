@@ -1,4 +1,4 @@
-package filemanagers.writers;
+package util.filemanagers.writers;
 
 import java.io.File;
 import java.io.FileNotFoundException;

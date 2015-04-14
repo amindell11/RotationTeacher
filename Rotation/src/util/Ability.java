@@ -1,4 +1,4 @@
-package filemanagers.readers;
+package util;
 
 import javafx.scene.image.Image;
 

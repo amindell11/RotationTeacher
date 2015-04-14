@@ -1,6 +1,6 @@
 package operation;
 
-import filemanagers.readers.LogParser;
+import util.filemanagers.readers.LogParser;
 
 public class LogSequencer extends Sequencer{
 	@Override

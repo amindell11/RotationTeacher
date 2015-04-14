@@ -16,8 +16,8 @@ import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import operation.Main;
-import filemanagers.writers.HTMLParser;
-import filemanagers.writers.Writer;
+import util.filemanagers.writers.HTMLParser;
+import util.filemanagers.writers.Writer;
 
 /**
  *

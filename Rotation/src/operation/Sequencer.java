@@ -5,9 +5,9 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import filemanagers.readers.Ability;
-import filemanagers.readers.Database;
-import filemanagers.readers.Reader;
+import util.Ability;
+import util.Database;
+import util.filemanagers.readers.Reader;
 
 public abstract class Sequencer {
 	protected Reader reader;

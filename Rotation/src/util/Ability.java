@@ -1,6 +1,5 @@
 package util;
 
-import javafx.scene.image.Image;
 
 public class Ability {
 	private double cooldown;

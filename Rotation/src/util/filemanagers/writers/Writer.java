@@ -1,15 +1,10 @@
 package util.filemanagers.writers;
 
 import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 
-import com.Ostermiller.util.CSVParse;
-import com.Ostermiller.util.CSVParser;
 import com.Ostermiller.util.CSVPrinter;
-import com.Ostermiller.util.LabeledCSVParser;
 
 public class Writer {
 	public static void TSVWrite(File file,String[][] table){
